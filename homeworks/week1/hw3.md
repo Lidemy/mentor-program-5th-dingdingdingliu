@@ -9,7 +9,7 @@ CLI 意指 Commend Line Interface，就是透過文字指令來操作電腦。
 ##### 首先請安裝 Git 
 
 - 此處以Windows系統為例，請至[https://git-scm.com/](https://git-scm.com/) 頁面 download 處下載
-- 依安裝指示完成安裝即可
+- 依安裝指示完成安裝
 
 
 
