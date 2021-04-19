@@ -40,3 +40,9 @@
 18. 如需改動作業內容，修改作業檔案後重複 14~15 項，至遠端頁面上重新整理即可看到新版本已出現
 
 19. 複製 pr 作業網址，至學習系統繳交作業處提交
+
+20. 待助教改完將遠端的 branch merge 至 master
+
+21. `git pull origin master` 將遠端的 master 拉回本地環境同步
+
+22. `git branch -d '已 merge master 的當週作業branch' ` 將本地的 branch 刪除
