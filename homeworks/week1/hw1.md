@@ -22,18 +22,18 @@
 
 11. 目前的 `branch ` : master
 
-12. `git branch week1-first` 為第一週初版作業新開一個 branch 並命名為 " week1-first "
+12. `git branch 'branch名稱'` 為當週作業新開一個 branch 並命名
 
-13. `git checkout week1-first` 切換到  " week1-first " 這個branch 
-    (另可用 `git checkout -b week1-first` 建立 branch 後切換過去)
+13. `git checkout 'branch名稱'` 切換到指定 branch
+    (另可用 `git checkout -b 'branch名稱'` 建立 branch 後切換過去)
 
-14. 修改 / 新增內容的作業，必須先`git add` 進入暫存區區 ( Staging Area )，再 `git commit -m "版本資訊"` 進行版本儲存。
+14. 修改 / 新增內容的作業，必須先`git add` 進入暫存區區 ( Staging Area )，再 `git commit -m 'branch名稱' `進行版本儲存。
 
-    (此處可用 `git commit -am "版本資訊"` 進行 )
+    (此處可用 `git commit -am 'branch名稱'` 進行 )
 
-15. `git push origin week1` 將作業 push 推入遠端頁面
+15. `git push origin week1` 將作業 push 推入遠端頁面 ( week1 可更換成不同週別)
 
-16. 至 github 作業介面重新整理，確認檔案已 push 並出現 week1 branch
+16. 至 github 作業介面重新整理，確認檔案已 push 並出現新增branch
 
 17. 確認完畢按下 pull request 按鈕 並 create
 
