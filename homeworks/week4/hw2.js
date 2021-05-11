@@ -4,34 +4,50 @@ const process = require('process')
 const BASE_URL = 'https://lidemy-book-store.herokuapp.com/books'
 const arg = process.argv[2]
 
-if (arg === 'list') {
-  listBooks()
-} else if (arg === 'read') {
-  readBook(process.argv[3])
-} else if (arg === 'delete') {
-  deleteBook(process.argv[3])
-} else if (arg === 'create') {
-  createBook(process.argv[3])
-} else if (arg === 'update') {
-  updateBook(process.argv[3], process.argv[4])
+switch (arg) {
+  case 'list':
+    listBooks()
+    break
+  case 'read':
+    readBook(process.argv[3])
+    break
+  case 'delete':
+    deleteBook(process.argv[3])
+    break
+  case 'create':
+    createBook(process.argv[3])
+    break
+  case 'update':
+    updateBook(process.argv[3], process.argv[4])
+    break
 }
+
+// if (arg === 'list') {
+//   listBooks()
+// } else if (arg === 'read') {
+//   readBook(process.argv[3])
+// } else if (arg === 'delete') {
+//   deleteBook(process.argv[3])
+// } else if (arg === 'create') {
+//   createBook(process.argv[3])
+// } else if (arg === 'update') {
+//   updateBook(process.argv[3], process.argv[4])
+// }
 
 // function for printing the first 20 books
 function listBooks() {
   request.get(
     `${BASE_URL}?_limit=20`,
     (err, res, body) => {
-      if (res.statusCode === 404) {
-        console.log('ERROR!', err)
-        return
+      if (err) {
+        return console.log('ERROR!', err)
       }
 
       let data
       try {
         data = JSON.parse(body)
       } catch (err) {
-        console.log(err)
-        return
+        return console.log(err)
       }
 
       for (let i = 0; i < data.length; i++) {
@@ -46,17 +62,15 @@ function readBook(id) {
   request.get(
     `${BASE_URL}/${id}`,
     (err, res, body) => {
-      if (res.statusCode === 404) {
-        console.log('ERROR!', err)
-        return
+      if (err) {
+        return console.log('ERROR!', err)
       }
 
       let data
       try {
         data = JSON.parse(body)
       } catch (err) {
-        console.log(err)
-        return
+        return console.log(err)
       }
 
       console.log(data)
@@ -69,7 +83,7 @@ function deleteBook(id) {
   request.delete(
     `${BASE_URL}/${id}`,
     (err, res) => {
-      if (res.statusCode === 404) {
+      if (err) {
         return console.log('ERROR!', err)
       } else {
         console.log('success')
@@ -88,7 +102,7 @@ function createBook(title) {
       }
     },
     (err, res) => {
-      if (res.statusCode === 404) {
+      if (err) {
         return console.log('ERROR!', err)
       } else {
         console.log('success')
@@ -107,7 +121,7 @@ function updateBook(id, title) {
       }
     },
     (err, res) => {
-      if (res.statusCode === 404) {
+      if (err) {
         return console.log('ERROR!', err)
       } else {
         console.log('success')

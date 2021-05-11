@@ -7,7 +7,7 @@ const countryName = process.argv[2]
 request.get(
   `${BASE_URL}${countryName}`,
   (err, res, body) => {
-    if (res.statusCode === 404) {
+    if (err) {
       console.log('找不到國家資訊')
       return
     }
@@ -20,8 +20,7 @@ request.get(
     }
 
     for (let i = 0; i < data.length; i++) {
-      let result = ''
-      result += `
+      const result = `
         ============
         國家 : ${data[i].name}
         首都 : ${data[i].capital}

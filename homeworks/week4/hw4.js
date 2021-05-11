@@ -12,8 +12,7 @@ request.get(
   options,
   (err, res, body) => {
     if (err) {
-      console.log('ERROR!')
-      return
+      return console.log('ERROR!')
     }
 
     let data
