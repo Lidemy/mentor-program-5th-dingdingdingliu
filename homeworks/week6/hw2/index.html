@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form</title>
+  <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+
+  <style>
+    body {
+      background: rgba(0, 0, 0, 0.3);
+      margin: 0;
+    }
+
+
+
+    h2 {
+      font-size: 36px;
+      font-weight: bold;
+    }
+
+    input {
+      font-size: 16px;
+      filter: grayscale(1);
+      border: 1px solid #d0d0d0;
+      border-radius: 3px;
+      padding: 5px;
+    }
+
+    .form {
+      background: white;
+      max-width: 520px;
+      padding: 20px 16px;
+      margin: 80px auto 40px auto;
+      border-top: 8px solid #fad312;
+      box-shadow: 1.8px 2.4px 5px 0 rgba(0, 0, 0, 0.3);
+      font-size: 14px;
+    }
+
+    .form__info div:last-child {
+      color: #e74149;
+      font-size: 16px;
+    }
+
+    .form__info>div {
+      margin-bottom: 12px;
+    }
+
+    .wrapper {
+      margin: 48px 0px;
+    }
+
+    .form__title {
+      font-size: 20px;
+      margin: 16px 0px;
+    }
+
+    .form__title::after {
+      content: attr(data-symbol);
+      color: #e74149;
+    }
+
+    .form__title-text {
+      font-size: 14px;
+      margin-top: 6px;
+    }
+
+    #floor {
+      margin-top: 5px;
+    }
+
+    .button {
+      display: inline-block;
+      font-size: 15px;
+      background: #fad312;
+      padding: 9px 27px;
+      border-radius: 3px;
+      text-align: center;
+      margin-bottom: 18px;
+      cursor: pointer;
+      transition: transform 0.5s;
+    }
+
+    .button:hover {
+      transform: scale(1.1);
+    }
+
+    .footer {
+      font-size: 13px;
+      color: #999999;
+      background: black;
+      padding: 12px 0px;
+      text-align: center;
+    }
+
+    @media (max-width:768px) {
+      .form__info-title {
+        white-space: nowrap;
+      }
+    }
+
+    @media (max-width:376px) {
+      .form {
+        /* width: 100%; */
+        margin: 10px;
+        box-shadow: none;
+        border-radius: 5px;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class="form">
+    <div class="form__info">
+      <h2 class="form__info-title">新拖延運動報名表單</h2>
+      <div>活動日期：2020/12/10 ~ 2020/12/11</div>
+      <div>活動地點：台北市大安區新生南路二段1號</div>
+      <div>*必填</div>
+    </div>
+    <form class="wrapper">
+      <div class="form__title" data-symbol=" *">暱稱</div>
+      <input type="text" placeholder="您的回答" />
+    </form>
+    <form class="wrapper">
+      <div class="form__title" data-symbol=" *">電子郵件</div>
+      <input type="text" placeholder="您的電子郵件" />
+    </form>
+    <form class="wrapper">
+      <div class="form__title" data-symbol=" *">手機號碼</div>
+      <input type="text" placeholder="您的手機號碼" />
+    </form>
+    <form class="wrapper">
+      <div class="form__title" data-symbol=" *">報名類型</div>
+      <input type="radio" name="type" id="bed" /><label for="bed"> 躺在床上用想像力實作</label><br />
+      <input type="radio" name="type" id="floor" /><label for="floor"> 趴在地上滑手機找現成的</label><br />
+    </form>
+    <form class="wrapper">
+      <div class="form__title" data-symbol=" *">怎麼知道這個活動的?</div>
+      <input type="text" placeholder="您的回答" />
+    </form>
+    <form class="wrapper">
+      <div class="form__title">其他
+        <div class="form__title-text">對活動的一些建議</div>
+      </div>
+      <input type="text" placeholder="您的回答" />
+    </form>
+    <div class="form__end">
+      <div type="submit" class="button">提交</div>
+      <div>請勿透過表單送出您的密碼。</div>
+    </div>
+  </div>
+  <div class="footer">© 2020 © Copyright. All rights Reserved.</div>
+</body>
+
+</html>
