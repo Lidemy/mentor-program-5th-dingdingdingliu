@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RESTAURANT</title>
+  <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+
+  <Style>
+    h2 {
+      margin: 0;
+    }
+
+    .wrapper {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0px 24px;
+    }
+
+
+    .section {
+      text-align: center;
+      margin-top: 70px;
+    }
+
+    .wrapper-navbar {
+      padding: 0px;
+    }
+
+    .navbar {
+      box-shadow: -1.4px -1.4px 6px 0 #97a2a0;
+      padding: 0px 20px;
+    }
+
+    .navbar .wrapper {
+      height: 84px;
+      background: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar__site-name {
+      color: #489846;
+      font-size: 36px;
+    }
+
+    .navbar__list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-size: 18px;
+      display: flex;
+    }
+
+    .navbar__list li {
+      margin-left: 10px;
+      border-radius: 8px;
+      transition: background 0.1s ease-in;
+    }
+
+    .navbar__list li.active,
+    .navbar__list li:hover {
+      background: #ff7286;
+    }
+
+    .navbar__list li a {
+      display: block;
+      padding: 12px 24px;
+      text-decoration: none;
+      color: black;
+    }
+
+    .navbar__list li.active a,
+    .navbar__list li:hover a {
+      color: white;
+    }
+
+    .banner {
+      position: relative;
+      background: url(01.png) center/cover no-repeat;
+      height: 380px;
+    }
+
+    .banner:after {
+      content: "";
+      position: absolute;
+      background: rgba(0, 0, 0, 0.3);
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+    }
+
+    .banner h1 {
+      position: relative;
+      z-index: 1;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: inline-block;
+      margin: 0;
+      color: white;
+      font-size: 60px;
+      font-weight: bold;
+    }
+
+    .section__title {
+      display: inline-block;
+      font-size: 36px;
+      font-weight: bold;
+      border-left: 15px solid #a3dea2;
+      padding-left: 12px;
+      margin-bottom: 40px;
+    }
+
+    .second__block-content {
+      font-size: 16px;
+      line-height: 1.8em;
+      margin: 0px 0px 74px 0px;
+    }
+
+    .second__block-buttons {
+      color: #3e613d;
+      font-size: 36px;
+      font-weight: bold;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 60px 80px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.5s;
+      margin-bottom: 60px;
+    }
+
+    .button:hover {
+      transform: scale(1.1);
+    }
+
+    .btn-order {
+      background: #a8e8e1;
+    }
+
+    .btn-query {
+      background: #f9f9b5;
+      margin-left: 23px;
+    }
+
+    .section__avatars {
+      display: flex;
+    }
+
+    .section__avatars>div {
+      width: 25%;
+      padding: 0 10px 10px 0;
+    }
+
+    .section__avatars>div>img {
+      width: 100%;
+    }
+
+    footer {
+      margin-top: 32px;
+    }
+
+    .footer__top .wrapper {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .footer__top-left {
+      margin-right: 20px;
+    }
+
+    .footer__top-right {
+      text-align: right;
+    }
+
+    .footer__top-left div+div {
+      margin-top: 10px;
+    }
+
+    .footer__top {
+      background: #e8efee;
+      padding: 32px 0;
+      color: #484848;
+    }
+
+    .site-name {
+      font-size: 28px;
+      color: #489846;
+    }
+
+    .footer__bottom {
+      background: #35564b;
+      padding: 12px 0;
+      text-align: center;
+      color: white;
+      font-size: 16px;
+    }
+
+    .comments {
+      display: flex;
+      font-size: 16px;
+      text-align: center;
+      margin-top: 24px;
+    }
+
+    .comment {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      flex: 1;
+      border: 1px solid #c7e5ec;
+      border-radius: 5px;
+      box-sizing: border-box;
+      padding: 48px 0px 30px 0px;
+      margin: 0px 12px;
+    }
+
+    .comment__content {
+      margin: 16px 12px 0px 12px;
+    }
+
+    .comment__avatar {
+      width: 20%;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .comment__avatar>img {
+      width: 100%;
+      height: auto;
+      border: 1px solid lightgrey;
+      border-radius: 50%;
+    }
+
+    .faq__content {
+      max-width: 768px;
+      display: flex;
+      flex-direction: column;
+      padding: 8px 12px;
+      margin: 0 auto;
+    }
+
+    details {
+      border-bottom: 1px solid #a6e2c0;
+    }
+
+    summary {
+      display: flex;
+      align-items: center;
+    }
+
+    summary:hover {
+      cursor: pointer;
+    }
+
+    .summary__number {
+      font-size: 24px;
+      color: #70b282;
+    }
+
+    .summary__title {
+      font-size: 18px;
+      padding-top: 5px;
+      margin-left: 5px;
+    }
+
+    .summary__content {
+      width: 90%;
+      font-size: 16px;
+      top: 0;
+      left: 0;
+      position: relative;
+      left: 42px;
+      margin-bottom: 8px;
+      word-break: break-all;
+      line-height: 1.5em;
+    }
+
+
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 0px;
+      }
+
+      .navbar .wrapper {
+        height: 120px;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .navbar__site-name {
+        margin-top: 10px;
+      }
+
+      .navbar__list {
+        width: 100%;
+        display: flex;
+      }
+
+      .navbar__list li {
+        flex: 1;
+        margin-left: 0;
+        border-radius: 0;
+        text-align: center;
+      }
+
+      .banner:after {
+        background-size: 100%;
+      }
+
+      .button {
+        margin-bottom: 0px;
+      }
+
+      .btn-query {
+        margin-top: 10px;
+        margin-left: 0px;
+      }
+
+      .footer__top .wrapper {
+        flex-direction: column-reverse;
+      }
+
+
+      .footer__top-right {
+        text-align: left;
+      }
+
+      .footer__top-left {
+        margin-right: 0;
+        margin-top: 16px;
+      }
+
+      .footer__bottom {
+        padding: 12px;
+      }
+
+      .comments {
+        flex-direction: column;
+      }
+
+      .comment {
+        padding: 72px 0px 30px 0px;
+        margin: 36px 0px;
+      }
+
+    }
+
+    @media (max-width: 376px) {
+      .section__avatars {
+        flex-direction: column;
+      }
+
+      .section__avatars>div {
+        width: 100%;
+        padding: 0 10px 10px 0;
+      }
+    }
+  </Style>
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="wrapper wrapper-navbar">
+      <div class="navbar__site-name">
+        Just A Bite!
+      </div>
+      <ul class="navbar__list">
+        <li class="active"><a href="#">抽個大獎</a></li>
+        <li><a href="#">我要點餐</a></li>
+        <li><a href="#">查詢訂單</a></li>
+        <li><a href="#">常見問題</a></li>
+      </ul>
+    </div>
+  </nav>
+  <section class="banner">
+    <h1>咬一口廚房</h1>
+  </section>
+  <div class="wrapper">
+    <section class="section">
+      <h2 class="section__title">當輕食之風盛起</h2>
+      <p class="second__block-content">
+        由於現代人生活忙碌，常以外食為主，當高糖、高鹽、高油成為人們的日常，會導致慢性疾病與肥胖的機率大增。
+        <br>
+        我們定期走訪農田，選用最天然、營養的食材，以簡單的烹調方式處理，最大化忠實呈現食材原本的鮮味。
+        <br>
+        咬一口不只賣餐點，我們希望能夠讓大家愛上料理的魅力，餐館特意打造全開放式廚房，烹調透明化，也不定時舉辦美食廚房DIY，讓大家體驗不需要過多調味，就能擁有千變萬化的食物口感。
+      </p>
+      <div class="second__block-buttons">
+        <div class="button btn-order">我要點餐</div>
+        <div class="button btn-query">查詢訂單</div>
+      </div>
+    </section>
+    <section class="section">
+      <h2 class="section__title">MENU 搶先看</h2>
+      <div class="section__avatars">
+        <div><img src="f-001.png" /></div>
+        <div><img src="f-002.png" /></div>
+        <div><img src="f-003.png" /></div>
+        <div><img src="f-004.png" /></div>
+      </div>
+    </section>
+  </div>
+  <div class="wrapper">
+    <section class="section">
+      <h2 class="section__title">吃過都說好</h2>
+    </section>
+    <div class="comments">
+      <div class="comment">
+        <div class="comment__avatar">
+          <img src="p-1.png">
+        </div>
+        <div>國父桑</div>
+        <div class="comment__content">我一生疲於建國，去過日本，去過歐洲，卻從未到過台北101，也從來沒有吃過這麼好吃的東西...今天在時空旅行者的幫助下我終於吃到了...此生再無遺憾 QAQ!!
+        </div>
+      </div>
+      <div class="comment">
+        <div class="comment__avatar">
+          <img src="p-2.png">
+        </div>
+        <div>可達鴨</div>
+        <div class="comment__content">三雙鞋等於30，兩個人加一雙鞋等於20，一雙冰淇淋加一雙冰淇淋加一個人等於13，那$#%$#%^%$^##$%等於多少...唉，大概咬一口就知道了!!!</div>
+      </div>
+      <div class="comment">
+        <div class="comment__avatar">
+          <img src="p-3.png">
+        </div>
+        <div>旅かえる旅行青蛙</div>
+        <div class="comment__content">自從呱呱呱呱呱以後，我呱呱呱呱呱，非常感謝呱呱呱呱呱，下次呱呱呱呱呱我呱呱呱呱呱，一定呱呱呱呱呱!!!</div>
+      </div>
+    </div>
+  </div>
+  <div class="wrapper">
+    <section class="section">
+      <h2 class="section__title">我們在哪裡</h2>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.0080146342334!2d121.5623186719719!3d25.033802076551996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abb6da80a7ad%3A0xacc4d11dc963103c!2z5Y-w5YyXMTAx!5e0!3m2!1szh-TW!2stw!4v1621666819414!5m2!1szh-TW!2stw"
+        width="100%" height="380" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </section>
+  </div>
+  <div class="wrapper">
+    <section class="section">
+      <h2 class="section__title">FAQ - 常見問題</h2>
+    </section>
+    <div class="faq__content">
+      <details>
+        <summary>
+          <p class="summary__number">Q1:</p>
+          <p class="summary__title">如何辦理退貨？</p>
+        </summary>
+        <div class="summary__content">
+          請您於鑑賞期七日內申請退貨服務，保持商品包裝完整，並持退貨代碼至超商寄回。
+        </div>
+      </details>
+      <details>
+        <summary>
+          <p class="summary__number">Q2:</p>
+          <p class="summary__title">目前提供哪些付款方式？</p>
+        </summary>
+        <div class="summary__content">
+          目前提供方式有五種:
+          超商取貨付款、信用卡線上刷卡、LINE PAY、APPLE PAY、宅配貨到付款。
+        </div>
+      </details>
+      <details>
+        <summary>
+          <p class="summary__number">Q3:</p>
+          <p class="summary__title">線上刷卡如何操作呢？</p>
+        </summary>
+        <div class="summary__content">
+          線上刷卡的使用方式也超簡單，只要您確認您當次的購物清單與金額都無誤，就可立即到匯款上傳系統，登入個人帳號密碼後，點選"線上刷卡方式"，確認收件住址後，再進行刷卡確認程序即可～
+        </div>
+      </details>
+      <details>
+        <summary>
+          <p class="summary__number">Q4:</p>
+          <p class="summary__title">如何查詢目前訂單的處理情況？</p>
+        </summary>
+        <div class="summary__content">
+          請您先登入後至「訂單查詢」，即可查詢該訂單的處理狀態。
+        </div>
+      </details>
+      <details>
+        <summary>
+          <p class="summary__number">Q5:</p>
+          <p class="summary__title">訂單成立後，是否可以取消或是更改訂單數量及商品？</p>
+        </summary>
+        <div class="summary__content">
+          為避免影響商品庫存及避免帳務錯誤，請恕我們無法為您取消或是更改訂單商品。若您已結帳完成訂單而有此需求，建議您可點選『取消訂單』。<br>
+          如遇訂單狀態已完成出貨無法攔截時，請恕無法協助取消訂單。如有不適合的商品，再請您於七日鑑賞期內辦理退貨服務。
+        </div>
+      </details>
+      <details>
+        <summary>
+          <p class="summary__number">Q6:</p>
+          <p class="summary__title">我想購買的商品已經缺貨，什麼時候會進貨呢？</p>
+        </summary>
+        <div class="summary__content">
+          如購物車按鈕顯示「商品售完已絕版」即表示該商品已售完無法再補貨囉！<br>
+          如購物車按鈕顯示「貨到通知我」，請點選該按鈕並填寫聯絡資訊(E-mail或手機號碼)，商品到貨後系統會依登記順序及到貨數量陸續發送E-mail或簡訊通知。
+        </div>
+      </details>
+      <details>
+        <summary>
+          <p class="summary__number">Q7:</p>
+          <p class="summary__title">如何計算「七天鑑賞期」？</p>
+        </summary>
+        <div class="summary__content">
+          根據消保法規定，於完成簽收取件的隔日起算至第七天止為鑑賞期。
+        </div>
+      </details>
+      <details>
+        <summary>
+          <p class="summary__number">Q8:</p>
+          <p class="summary__title">可選擇的配送方式有那些？</p>
+        </summary>
+        <div class="summary__content">
+          若選擇超商取貨付款，商品將配送至您指定的門市。<br>
+          若選擇其他付款方式，商品將由黑貓宅急便宅配至指定地址。
+        </div>
+      </details>
+      <details>
+        <summary>
+          <p class="summary__number">Q9:</p>
+          <p class="summary__title">請問運費如何計算？</p>
+        </summary>
+        <div class="summary__content">
+          超商取貨付款: 消費達一千元免運，若未達則酌收五十元運費。<br>
+          其他方式付款: 消費達一千二百元免運，若未達則酌收六十元運費。
+        </div>
+      </details>
+      <details>
+        <summary>
+          <p class="summary__number">Q10:</p>
+          <p class="summary__title">訂購商品後需幾天的時間才可以收到商品呢？</p>
+        </summary>
+        <div class="summary__content">
+          常態的出貨時間為：今天下單，明天取貨。<br>
+          但請務必注意：週日及例假日不出貨，超過每日截止時間的訂單要多等一天。
+        </div>
+      </details>
+      <details>
+        <summary>
+          <p class="summary__number">Q11:</p>
+          <p class="summary__title">沒有在領取的期限內取貨該怎麼辦？</p>
+        </summary>
+        <div class="summary__content">
+          若您逾期未完成取貨或簽收時，商品將會退回本公司，訂單亦將自動取消無法重新配送，如您仍需要該商品，請再次重新上網訂購。若達兩次以上(含)，未來將無法再使用該付款方式下單。
+        </div>
+      </details>
+      <details>
+        <summary>
+          <p class="summary__number">Q12:</p>
+          <p class="summary__title">門市訂單可否修改取貨時間？</p>
+        </summary>
+        <div class="summary__content">
+          因超商取貨服務時限為超商訂定作業規範，無法依個人需求彈性更動，請您見諒！
+        </div>
+      </details>
+    </div>
+  </div>
+  <footer>
+    <div class="footer__top">
+      <div class="wrapper">
+        <div class="footer__top-left info">
+          <div>餐館地址: 天上地下天堂路三分之一里六段520號</div>
+          <div>訂位專線：02-1314-5566</div>
+          <div>營業時間：週一〜週五 09:00~18:00 / 週六、週日、國定假日（含連假）休息</div>
+          <div>email：service@justabite.com.tw</div>
+        </div>
+        <div class="footer__top-right site">
+          <div class="site-name">Just A Bite!</div>
+          <div>Facebook / Instagram / Youtube</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      Copyright © 2020 Just A Bite All Rights Reserved. 咬一口股份有限公司版權所有
+    </div>
+  </footer>
+</body>
+
+</html>

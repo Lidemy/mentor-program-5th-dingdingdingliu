@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html>
+
+<body>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo List</title>
+  <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+  <script src="https://kit.fontawesome.com/5c062f800e.js" crossorigin="anonymous"></script>
+
+  <style>
+    h2 {
+      font-size: 26px;
+    }
+
+    .wrapper {
+      max-width: 500px;
+      min-height: 400px;
+      margin: 0 auto;
+      margin-top: 60px;
+      padding: 10px 15px;
+      border: 2px solid tan;
+      border-radius: 5px;
+      background: rgb(252, 250, 248);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .header {
+      width: 95%;
+      background: tan;
+      padding: 5px 18px 18px 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 3px;
+    }
+
+    input {
+      padding: 8px;
+      outline: none;
+      border: 2px solid gray;
+      border-radius: 5px;
+    }
+
+    .add {
+      background: none;
+      border: none;
+      margin-left: 10px;
+      color: gray;
+    }
+
+    .add:hover {
+      color: white;
+    }
+
+
+    .contents {
+      width: 60%;
+      display: flex;
+      flex-direction: column;
+      margin-top: 10px;
+    }
+
+    .content {
+
+      display: flex;
+      margin: 15px;
+      margin-bottom: 10px;
+      padding: 0px 0px 5px 5px;
+      border-bottom: 2px solid tan;
+      font-size: 20px;
+      justify-content: space-between;
+    }
+
+    .checked {
+      color: #ccc;
+      text-decoration: line-through;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    i {
+      pointer-events: none
+    }
+
+    .done,
+    .delete {
+      background: none;
+      border: none;
+      color: tan;
+    }
+
+    .checked~div .done {
+      color: green;
+    }
+
+    .done:hover {
+      color: green;
+    }
+
+    .delete:hover {
+      color: rgb(219, 53, 53);
+    }
+  </style>
+</body>
+
+<head>
+  <div class="wrapper">
+    <div class="header">
+      <h2>To Do List</h2>
+      <div class="header__input">
+        <input id="todo" type="text" placeholder="Add the plan ..." />
+        <button class="add">
+          <i class="fas fa-plus-circle fa-lg"></i>
+        </button>
+      </div>
+    </div>
+    <div class="contents">
+      <!-- <div class="content">
+        <div class="content__text">
+          Buy clothes
+        </div>
+        <div class="content__btn">
+          <button class="done">
+            <i class="far fa-check-circle fa-lg"></i>
+          </button>
+          <button class="delete">
+            <i class="far fa-trash-alt fa-lg"></i>
+          </button>
+        </div>
+      </div> -->
+    </div>
+  </div>
+
+  <script>
+    const contents = document.querySelector('.contents')
+    const addBtn = document.querySelector('.add')
+    const input = document.querySelector('input')
+
+    // 初始頁面
+    const list = ['Go to gym', 'Buy eggs', 'Pay bills']
+    list.forEach(item => {
+      addItem(item)
+    })
+
+    // 按鍵新增 Todolist
+    addBtn.addEventListener('click', e => {
+      const value = document.getElementById('todo').value
+      if (!value) {
+        return
+      } else {
+        addItem(value)
+        document.getElementById('todo').value = ''
+      }
+    })
+
+    // 按enter新增 Todolist
+    input.addEventListener('keyup', e => {
+      const value = document.querySelector('input').value
+      if (event.keyCode === 13) {
+        event.preventDefault()
+        if (!value) {
+          return
+        } else {
+          addItem(value)
+          document.getElementById('todo').value = ''
+        }
+      }
+    })
+
+    // done or delete
+    contents.addEventListener('click', e => {
+      const target = e.target
+      const parentElement = target.parentElement
+      if (target.classList.contains('delete')) {
+        parentElement.parentElement.remove()
+      } else if (target.classList.contains('done')) {
+        parentElement.parentElement.children[0].classList.toggle('checked')
+      }
+    })
+
+
+    // function for add todolist
+    function addItem(text) {
+      const div = document.createElement('div')
+      div.classList.add('content')
+      div.innerHTML = `
+        <div class="content__text">
+          ${text}
+        </div>
+        <div class="content__btn">
+          <button class="done">
+            <i class="far fa-check-circle fa-lg"></i>
+          </button>
+          <button class="delete">
+            <i class="far fa-trash-alt fa-lg"></i>
+          </button>
+        </div>
+      `
+      contents.appendChild(div)
+    }
+  </script>
+</head>
+
+</html>
