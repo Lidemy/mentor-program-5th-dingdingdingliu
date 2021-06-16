@@ -1,0 +1,152 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: linen;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+.warning {
+  background: #ffc4c6;
+  color: #a20606;
+  font-weight: bold;
+  padding: 10px;
+  margin: 10px 0px;
+  text-align: center;
+}
+
+.board__greeting {
+  color: #5c9edc;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+h3 {
+ color: #5b8fc0;
+}
+h4,
+h5 {
+  color:#b11212;
+}
+
+.board {
+  background: white;
+  width: 100%;
+  max-width: 600px;
+  margin: 15px auto;
+  padding: 20px;
+  box-shadow: 1px 1px 3px #e8e8e8;
+  border-radius: 5px;
+}
+
+.nickname {
+  display: flex;
+  margin-bottom: 8px;
+}
+
+input {
+  border: 1px solid #c2dffb;
+  border-radius: 3px;
+  outline: none;
+  padding: 5px;
+  margin-left: 5px;
+}
+
+.board__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.board__form > textarea {
+  width:100%;
+  padding:10px;
+  border: 1px solid #c2dffb;
+  border-radius: 5px;
+  outline: none;
+  margin:5px 0;
+}
+
+.board__form-input {
+  margin: 20px 0px;
+}
+
+
+.submit__btn {
+  border: 1px solid #c2dffb;
+  outline: none;
+  background: none;
+  padding: 7px 15px;
+  border-radius: 3px;
+  cursor: pointer;
+  color: #5b8fc0;
+  font-weight: bold;
+}
+
+.submit__btn:hover,
+.board__btn:hover{
+  background:  #c2dffb;
+}
+
+.board__hr {
+  margin: 10px auto;
+  height: 1px;
+  background: #e8e8e8 ;
+  max-width: 100%;
+}
+
+.card {
+  display: flex;
+  margin: 30px 5px;
+  min-height: 70px;
+  border: 1px solid #e8e8e8;
+  border-radius: 5px;
+  padding: 10px;
+  padding-top: 20px;
+}
+
+.card__avatar {
+  min-width: 50px;
+  width:50px;
+  height:50px;
+  background: #c2dffb;
+  border-radius: 50%;
+}
+
+.card__body {
+  margin-left: 10px;
+}
+
+.card__content {
+  margin-top: 8px;
+  max-width: 100%;
+  white-space: pre-line;
+}
+
+.card__author {
+  color: #5c9edc;
+  font-weight: bold;
+  word-break: break-all;
+}
+
+.card__time {
+  color: #a0a0a0;
+  margin-left: 5px;
+}
+
+.board__btn {
+  text-decoration: none;
+  border: 1px solid #c2dffb;
+  outline: none;
+  background: none;
+  padding: 7px 15px;
+  border-radius: 3px;
+  cursor: pointer;
+  color: #5b8fc0;
+  font-size: 14px;
+  font-weight: bold;
+}
