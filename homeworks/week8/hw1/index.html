@@ -75,7 +75,6 @@
 
     /* lottery page */
     .banner {
-      border: 0.01px solid white;
       position: relative;
       background: url(games-bn-tiny.png) center/cover no-repeat;
       height: 720px;
@@ -95,6 +94,11 @@
     #third {
       background-image: url(youtube-tiny.jpg);
       background-size: cover;
+    }
+
+    h2 {
+      margin: 0px;
+      margin-bottom: 20px;
     }
 
     #none {
@@ -174,7 +178,6 @@
     }
 
     .lottery__btn {
-      z-index: 1;
       border: none;
       background: #e62a45;
       padding: 14px 110px;
@@ -182,6 +185,11 @@
       border-radius: 8px;
       color: white;
       cursor: pointer;
+    }
+
+    .lottery__btn:hover {
+      transform: scale(1.05);
+      transition: all 0.3s ease 0s;
     }
 
     .footer__top .wrapper {
@@ -404,76 +412,85 @@
   </footer>
 
   <script>
-    const message = '系統不穩定，請再試一次'
-    document.querySelector('.banner').addEventListener('click', e => {
+    const errMessage = '系統不穩定，請再試一次'
+    const banner = document.querySelector('.banner')
+    const lottery = document.querySelector('.lottery')
+    const lotteryWin = document.querySelector('.lottery__win')
+    const BaseURL = 'https://dvwhnbka7d.execute-api.us-east-1.amazonaws.com/default/lottery'
+    banner.addEventListener('click', e => {
       if (e.target.classList.contains('btn')) {
-        const request = new XMLHttpRequest()
-        const banner = document.querySelector('.banner')
-        const lottery = document.querySelector('.lottery')
-        const lotteryWin = document.querySelector('.lottery__win')
-        request.addEventListener('load', function () {
-          if (request.status >= 200 && request.status < 400) {
-            if (lotteryWin.classList.contains('hide')) {
-              banner.removeAttribute('id')
-            }
-
-            let data
-            try {
-              data = JSON.parse(request.response)
-              const isValue = data.prize
-              console.log(typeof (data.prize))
-              if (!isValue) {
-                alert(message)
-              } else {
-                lottery.classList.add('hide')
-                lotteryWin.classList.remove('hide')
-              }
-
-              let id
-              if (data.prize === 'FIRST') {
-                id = 'first'
-                banner.setAttribute('id', id)
-                lotteryWin.innerHTML = `
-                  <h2>恭喜你中頭獎了！日本東京來回雙人遊！</h2>
-                  <button class="lottery__btn btn" type="button">我要抽獎</button>
-                `
-              } else if (data.prize === 'SECOND') {
-                id = 'second'
-                banner.setAttribute('id', id)
-                lotteryWin.innerHTML = `
-                  <h2>二獎！90 吋電視一台！</h2>
-                  <button class="lottery__btn btn" type="button">我要抽獎</button>
-                `
-              } else if (data.prize === 'THIRD') {
-                id = 'third'
-                banner.setAttribute('id', id)
-                lotteryWin.innerHTML = `
-                  <h2>恭喜你抽中三獎：知名 YouTuber 簽名握手會入場券一張，bang！</h2>
-                  <button class="lottery__btn btn" type="button">我要抽獎</button>
-                `
-              } else if (data.prize === 'NONE') {
-                id = 'none'
-                banner.setAttribute('id', id)
-                lotteryWin.innerHTML = `
-                  <h2>銘謝惠顧</h2>
-                  <button class="lottery__btn btn" type="button">我要抽獎</button>
-                `
-              }
-            } catch (err) {
-              console.log(err)
-            }
+        getLottery(function (err, data) {
+          if (err) {
+            alert(err)
+            return
           } else {
-            alert(message)
-          }
-
-          request.onerror = function () {
-            alert(message)
+            const prize = data.prize
+            lotteryPage(prize)
           }
         })
-        request.open('GET', 'https://dvwhnbka7d.execute-api.us-east-1.amazonaws.com/default/lottery', true)
-        request.send()
       }
     })
+
+    // 抽獎函式
+    function getLottery(callback) {
+      const request = new XMLHttpRequest()
+      request.open('GET', BaseURL, true)
+      request.addEventListener('load', function () {
+        if (request.status >= 200 && request.status < 400) {
+          let data
+          try {
+            data = JSON.parse(request.response)
+            const isValue = data.prize
+            if (!isValue) {
+              callback(errMessage)
+            } else {
+              lottery.classList.add('hide')
+              lotteryWin.classList.remove('hide')
+            }
+            callback(null, data)
+          } catch (err) {
+            console.log(err)
+            return
+          }
+        } else {
+          callback(errMessage)
+        }
+        request.onerror = function () {
+          callback(errMessage)
+        }
+      })
+      request.send()
+    }
+
+
+    // 抽獎結果頁面函式
+    function lotteryPage(prize) {
+      const banner = document.querySelector('.banner')
+      const lotteryWin = document.querySelector('.lottery__win')
+      let lotteryTitle = ''
+      if (prize) {
+        let id = prize.toLowerCase()
+        banner.setAttribute('id', id)
+        switch (prize) {
+          case 'FIRST':
+            lotteryTitle = '恭喜你中頭獎了！日本東京來回雙人遊！'
+            break;
+          case 'SECOND':
+            lotteryTitle = '二獎！90 吋電視一台！'
+            break;
+          case 'THIRD':
+            lotteryTitle = '恭喜你抽中三獎：知名 YouTuber 簽名握手會入場券一張，bang！'
+            break;
+          case 'NONE':
+            lotteryTitle = '銘謝惠顧'
+            break;
+        }
+      }
+      lotteryWin.innerHTML = `
+            <h2>${lotteryTitle}</h2>
+            <button class="lottery__btn btn" type="button">我要抽獎</button>
+          `
+    }
   </script>
 </body>
 
