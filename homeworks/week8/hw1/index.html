@@ -417,6 +417,7 @@
     const lottery = document.querySelector('.lottery')
     const lotteryWin = document.querySelector('.lottery__win')
     const BaseURL = 'https://dvwhnbka7d.execute-api.us-east-1.amazonaws.com/default/lottery'
+
     banner.addEventListener('click', e => {
       if (e.target.classList.contains('btn')) {
         getLottery(function (err, data) {
