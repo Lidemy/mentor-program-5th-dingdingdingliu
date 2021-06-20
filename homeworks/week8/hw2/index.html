@@ -223,14 +223,12 @@
 <script>
   const title = document.querySelector('.navbar__title')
   const navbar = document.querySelector('.navbar__list')
-  const contents = document.querySelector('.content__games')
+  const contentGames = document.querySelector('.content__games')
   const BaseURL = 'https://api.twitch.tv/kraken'
   const request = new XMLHttpRequest()
 
-  // 顯示初始頁面
-  getFirstSite()
+  getFirstSite() // 顯示初始頁面
 
-  // navbarList 監聽器
   navbar.addEventListener('click', e => {
     if (e.target.tagName.toLowerCase() === 'li') {
       const gamename = e.target.innerText
@@ -238,13 +236,12 @@
     }
   })
 
-  // 重新整理首頁
   title.addEventListener('click', e => {
     navbar.innerHTML = ''
     getFirstSite()
   })
 
-  // 顯示初始頁面
+  // 顯示初始頁面函式
   function getFirstSite() {
     request.addEventListener('load', function () {
       if (request.status >= 200 && request.status < 400) {
@@ -256,10 +253,7 @@
             list.innerText = data.game.name
             navbar.appendChild(list)
           })
-
-          // 顯示第一個遊戲的實況及名稱
-          getGameSite(datas[0].game.name)
-
+          getGameSite(datas[0].game.name) // 顯示第一個遊戲的實況及名稱
         } catch (err) {
           console.log(err)
         }
@@ -283,18 +277,8 @@
         let datas
         try {
           datas = JSON.parse(request.response).streams
-
-          // 顯示遊戲的名稱
-          document.querySelector('h3').innerText = gamename
-
-          // 顯示遊戲的頁面
-          addItem(datas)
-          contents.innerHTML += `
-          <div class="empty__game">
-          </div>
-          <div class="empty__game">
-          </div>
-        `
+          document.querySelector('h3').innerText = gamename // 顯示遊戲名稱
+          addItem(datas) // 顯示遊戲頁面
         } catch (err) {
           console.log(err)
         }
@@ -310,10 +294,10 @@
     request.setRequestHeader('Accept', 'application / vnd.twitchtv.v5 + json')
     request.send()
 
-    contents.innerHTML = ''
+    contentGames.innerHTML = ''
   }
 
-  // 顯示遊戲頁面內容
+  // 顯示遊戲實況
   function addItem(datas) {
     let rawHTML = ''
     datas.forEach(data => {
@@ -330,7 +314,13 @@
         </div>
       `
     })
-    contents.innerHTML = rawHTML
+    rawHTML += `
+      <div class="empty__game">
+      </div>
+      <div class="empty__game">
+      </div>
+    `
+    contentGames.innerHTML = rawHTML
   }
 </script>
 
