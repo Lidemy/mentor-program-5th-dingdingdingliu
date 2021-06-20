@@ -2,7 +2,7 @@
 session_start();
 require_once('conn.php');
 require_once('utils.php');
-$sql = 'select * from ding_w9_comments order by id desc';
+$sql = 'SELECT * FROM ding_w9_comments ORDER BY id DESC';
 $result = $conn->query($sql);
 
 $username = NULL;

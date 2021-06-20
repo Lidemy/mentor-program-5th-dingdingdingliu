@@ -14,7 +14,7 @@ $nickname = $userdata['nickname'];
 $content = $_POST['content'];
 
 $sql = sprintf(
-  "insert into ding_w9_comments (nickname, content) value ('%s','%s')",
+  "INSERT INTO ding_w9_comments (nickname, content) VALUE ('%s','%s')",
   $nickname,
   $content
 );

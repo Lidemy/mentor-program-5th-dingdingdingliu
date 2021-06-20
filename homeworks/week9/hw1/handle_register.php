@@ -1,5 +1,6 @@
 <?php
 require_once('conn.php');
+session_start();
 
 if (
   empty($_POST['username']) ||
@@ -16,7 +17,7 @@ $password = $_POST['password'];
 $nickname = $_POST['nickname'];
 
 $sql = sprintf(
-  "insert into ding_w9_userdatas (username, password, nickname) value('%s', '%s','%s')",
+  "INSERT INTO ding_w9_userdatas (username, password, nickname) VALUE ('%s', '%s','%s')",
   $username,
   $password,
   $nickname
@@ -34,4 +35,5 @@ if (!$result) {
   }
 }
 
+$_SESSION['username'] = $username;
 header("Location:index.php");

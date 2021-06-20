@@ -8,7 +8,9 @@
 
    - text : 
 
-     不可以設定最大長度，最大長度為 2 ^ 31 - 1 個字符，無法預設
+     不可以設定最大長度，最大長度為 **2 ^ 16 - 1** 個字符，無法預設
+     
+     附上 [Maria DB TEXT文件](https://mariadb.com/kb/en/text/#description)
 
 2. 文字量大小 : 
 
@@ -29,7 +31,7 @@
 
 ## Cookie 是什麼？在 HTTP 這一層要怎麼設定 Cookie，瀏覽器又是怎麼把 Cookie 帶去 Server 的？
 
-- Cookie 是 Server 傳送給瀏覽器，並要求瀏覽器存載的資訊，是小型的文字檔案。而瀏覽器再度帶著 Server 要求存載的 Cookie 內容發 request 給 Server時，Server 便能根據 Cookie 的內容決定狀態。因此 Cookie 是一種實作 Session 的方式，憑藉著雙方共同的認知:  Server 指定的資料，及瀏覽器被要求存在 Cookie 的資訊達成協定。
+- **Cookie 是 透過 Server 傳來的 set-cookie 資料，由瀏覽器產生並存載的資訊**，是小型的文字檔案。而瀏覽器再度帶著 Server 要求存載的 Cookie 內容發 request 給 Server時，Server 便能根據 Cookie 的內容決定狀態。因此 Cookie 是一種實作 Session 的方式，憑藉著雙方共同的認知:  Server 指定的資料，及瀏覽器被要求存在 Cookie 的資訊達成協定。
 - Server 透過 response header 傳送 set-cookie 的 header，讓瀏覽器設定 cookie 為指定內容，而當瀏覽器再度發 request 的時候，會在 request header 帶上帶有指定內容的 cookie。
 
 

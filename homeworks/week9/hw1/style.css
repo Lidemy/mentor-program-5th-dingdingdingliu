@@ -124,7 +124,7 @@ input {
 .card__content {
   margin-top: 8px;
   max-width: 100%;
-  white-space: pre-line;
+  word-break: break-all;
 }
 
 .card__author {

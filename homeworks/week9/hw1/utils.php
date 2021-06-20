@@ -5,7 +5,7 @@ function getNicknameFromData($username)
 {
   global $conn;
   $sql = sprintf(
-    "Select nickname from ding_w9_userdatas where username = '%s'",
+    "SELECT nickname FROM ding_w9_userdatas WHERE username = '%s'",
     $username
   );
   $result = $conn->query($sql);
