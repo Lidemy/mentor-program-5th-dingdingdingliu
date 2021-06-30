@@ -48,27 +48,36 @@
 
 - 防範方法 : 
 
-  1. 使用 php 內建的 session 函式庫，能在 $_SESSION 中設定內容
+  **看完第11週直播後，發現自己對這個問題有一些誤解，重新修正作業內容**
 
-     - 設定機制如下 :
-       - 啟用 session : 使用session_start() 函數
-       - 設定session 的變數值 : 產生一組 session-id (為一組亂碼)。
-       - 把 $_SESSION 中設定的變數值寫入 session 檔案
-       - 將一開始的 session-id 設定到 client 端的 set-cookie。
+  CSRF 的跨站攻擊，如果使用者在被攻擊的 domain 一直保持登入的時候，沒有辦法用 SESSION-ID / cookie 的途徑防止被攻擊。因為跨站攻擊是在不同 domain 底下發送一個避開使用者察覺、針對指定 domain 的 request，因此當原本網站保持登入的情況下，瀏覽器發現有一個針對指定 domain 的 request ，就會帶上其 domain 的 SESSION-ID / cookie 發出 request，後端驗證的時候也驗證 cookie 無誤，就成功的被攻擊了。
 
-     - 確認機制如下:
-       - 從 cookie 中讀取  session-id 
-       - 從 session 檔案中讀取變數值，如果登入時輸入的變數值與 session 檔案中讀取的變數值相同，即身分確認。
-
-     當 session-id 為一組亂碼時，可以防止駭客竊取身分；而 session-id 存在 set-cookie 時，cookie 只會從相同的 domain 帶上來，防止跨domain的攻擊。
+  可防範的方法 : 
 
   2. 加上圖形驗證碼或簡訊驗證碼。
 
-     - 這個方法通常用在有金流操作的網站，會要求重複的圖形驗證或簡訊驗證碼的確認。
+     - 這個方法通常用在有金流操作的網站，會要求重複的圖形驗證或簡訊驗證碼的確認。不會只單靠瀏覽器的操作，需要使用者透過手機號碼等其他方式多次驗證。
 
-  3. 瀏覽器端的防範方法 : SameSite Cookie
+  2. 瀏覽器端的防範方法 : SameSite Cookie
 
      - 原理是幫 cookie 再加上一層驗證，不允許跨站請求。除了在設定驗證的網站 Domain 發出的請求會帶上此 cookie 以外，其他 domain 發出的 request 都不會帶上這個 cookie。
+
+     - 用法 : 在設置 cookie 的 header 加入 "Samsite" 
+
+       ```Set-Cookie: session_id=ewfewjf23o1; SameSite```
+
+     - Strict 模式 : 比較嚴格，從 <a href='...'> 、<form>、new XMLHttpRequest 等發出的所有被驗證不是同一個 site 底下的 request 都不會被帶上 cookie。
+       (所以朋友貼一個 IG 貼文跟我分享，但我點進去永遠都不能看，因為是被登出的狀態，應該原因就是這個。)
+
+       這樣的模式會讓使用者體驗不佳，所以有些網站會準備兩組 cookie ，一組不設定 samsite，另一組設定 samsite 則使用在敏感操作上。
+
+     - Lax 模式 : 比較寬鬆。只有 POST 方法的 form ，或用 POST、PUT、DELETE 這些方法就不會帶上 cookie，但也因此無法擋下 GET 形式的攻擊。
+
+  3. 當一個總是登出的使用者。
+
+     
+
+     
 
      
 
