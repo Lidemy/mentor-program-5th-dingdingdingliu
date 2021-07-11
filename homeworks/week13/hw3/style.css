@@ -1,0 +1,193 @@
+ .wrapper {
+      display: flex;
+      flex-direction: column;
+      max-width: 1280px;
+      height: auto;
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    .navbar {
+      height: 90px;
+      padding: 0;
+      padding-left: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar__title {
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+
+    .navbar__list {
+      height: 105%;
+      width: 60%;
+      line-height: 105%;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .navbar__list li {
+      flex: 1;
+      height: 100%;
+      padding: 15px;
+      padding-top: 40px;
+      display: inline-block;
+      font-size: 16px;
+      box-sizing: border-box;
+      color: black;
+      text-align: center;
+      transition: background 0.1s ease-in;
+      cursor: pointer;
+      list-style: none;
+      white-space: nowrap;
+    }
+
+    li:hover {
+      color: white;
+    }
+
+    .navbar__list li:hover {
+      background: rgb(105, 104, 104);
+    }
+
+    .contents {
+      min-height: 800px;
+      margin: 0;
+      background: url(twitch-background.jpg) center/cover repeat;
+    }
+
+    .content-title,
+    .content-info {
+      color: white;
+    }
+
+    .content-title {
+      font-size: 24px;
+    }
+
+    .content-info {
+      font-size: 20px;
+    }
+
+    .twitch__content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .content__games {
+      margin: 24px;
+      margin-top: 40px;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+
+    .content__game {
+      width: 360px;
+      background: rgb(105, 104, 104);
+      color: white;
+      border: 1px solid rgb(105, 104, 104);
+      margin-bottom: 40px;
+      cursor: pointer;
+    }
+
+    .content__game:hover {
+      transform: scale(1.05);
+      transition: all 0.1s ease-in;
+      filter: brightness(1.1);
+    }
+
+    .empty__game {
+      width: 360px;
+      margin-bottom: 40px;
+      background: none;
+      border: none;
+    }
+
+    .game-img {
+      width: 100%;
+      height: auto;
+    }
+
+    .game-infos {
+      display: flex;
+      padding: 3px 5px;
+    }
+
+    .game-info-img {
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+    }
+
+    .game-info {
+      margin-top: 6px;
+      margin-left: 12px;
+    }
+
+    .game-title {
+      width: 280px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    p {
+      padding: 0;
+      margin: 0;
+    }
+
+    @media (max-width: 938px) {
+      .navbar__list li {
+        padding: 15px 5px;
+        padding-top: 30px;
+        font-size: 14px;
+        font-weight: bold;
+        color: black;
+        text-align: center;
+        white-space: pre-wrap;
+        vertical-align: middle;
+        line-height: 1.5em;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 0px;
+        height: 160px;
+        flex-direction: column;
+      }
+
+      .navbar__title {
+        margin: 15px;
+        margin-top: 20px;
+      }
+
+      .navbar__list {
+        height: 60px;
+        padding: 0px 0px;
+        width: 100%;
+      }
+
+      .navbar__list li {
+        text-align: center;
+        word-break: break-word;
+        font-size: 12px;
+        font-weight: bold;
+        flex: 1;
+        line-height: 15px;
+        padding-top: 20px;
+      }
+
+      .content-info {
+        margin: 0px 8px 5px 8px;
+        text-align: center;
+      }
+    }
