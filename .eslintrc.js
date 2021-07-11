@@ -17,6 +17,8 @@ module.exports = {
     ecmaVersion: 2018
   },
   rules: {
+    'import/no-unresolved': 'off',
+    'import/prefer-default-export': 'off',
     'no-console': 'off'
   }
 }
