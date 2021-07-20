@@ -3,16 +3,6 @@ session_start();
 require_once("conn.php");
 require_once("utils.php");
 require_once("checkpermission.php");
-
-$username = NULL;
-$role = NULL;
-if (!empty($_SESSION['username'])) {
-  $username = $_SESSION['username'];
-  $userdata = getUserData($username);
-  $role = $userdata['role'];
-}
-
-
 ?>
 
 <!DOCTYPE html>

@@ -4,16 +4,11 @@ require_once("conn.php");
 require_once("utils.php");
 require_once("checkpermission.php");
 
-$username = NULL;
-$role = NULL;
-if (!empty($_SESSION['username'])) {
-  $username = $_SESSION['username'];
-  $userdata = getUserData($username);
-  $role = $userdata['role'];
-}
-
-
 $id = $_GET['id'];
+if (!$id) {
+  header("Location:index.php");
+  die();
+}
 
 $sql = 'SELECT * FROM ding_w11_hw2_articles WHERE id = ?';
 $stmt = $conn->prepare($sql);

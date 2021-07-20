@@ -1,15 +1,11 @@
 <?php
-session_start();
 require_once("conn.php");
 require_once("checkpermission.php");
 require_once("utils.php");
 
 $username = NULL;
-$role = NULL;
 if (!empty($_SESSION['username'])) {
   $username = $_SESSION['username'];
-  $userdata = getUserData($username);
-  $role = $userdata['role'];
 }
 
 $sql = 'SELECT * FROM ding_w11_hw2_articles ORDER BY id DESC';
@@ -59,7 +55,9 @@ $result = $stmt->get_result();
         <div class="article__title"><?php echo escape($row['title']) ?></div>
         <div class="article__info">
           <div class="article__time"><?php echo escape($row['created_at']) ?></div>
-          <a href="updatearticle.php?id=<?php echo escape($row['id']) ?>">編輯</a>
+          <?php if ($row['username'] == $username) { ?>
+            <a href="updatearticle.php?id=<?php echo escape($row['id']) ?>">編輯</a>
+          <?php } ?>
           <?php if ($row['is_deleted'] == NULL) { ?>
             <a href="handle_deletearticle.php?id=<?php echo escape($row['id']) ?>">刪除</a>
           <?php } else { ?>

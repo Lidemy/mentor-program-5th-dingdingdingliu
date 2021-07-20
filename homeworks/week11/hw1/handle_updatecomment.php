@@ -18,14 +18,11 @@ $role = $userdata['role'];
 
 if ($role === 'ADMIN') {
   $sql = "UPDATE ding_w11_hw1_comments SET content = ? WHERE id =?";
-} else {
-  $sql = "UPDATE ding_w11_hw1_comments SET content = ? WHERE id =? AND username =?";
-}
-
-$stmt = $conn->prepare($sql);
-if ($role === 'ADMIN') {
+  $stmt = $conn->prepare($sql);
   $stmt->bind_param('si', $content, $id);
 } else {
+  $sql = "UPDATE ding_w11_hw1_comments SET content = ? WHERE id =? AND username =?";
+  $stmt = $conn->prepare($sql);
   $stmt->bind_param('sis', $content, $id, $username);
 }
 

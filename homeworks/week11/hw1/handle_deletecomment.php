@@ -18,15 +18,11 @@ $role = $userdata['role'];
 
 if ($role === 'ADMIN') {
   $sql = "UPDATE ding_w11_hw1_comments SET is_deleted = 1 WHERE id =?";
-} else {
-  $sql = "UPDATE ding_w11_hw1_comments SET is_deleted = 1 WHERE id =? AND username =?";
-}
-
-$stmt = $conn->prepare($sql);
-
-if ($role === 'ADMIN') {
+  $stmt = $conn->prepare($sql);
   $stmt->bind_param('i', $id);
 } else {
+  $sql = "UPDATE ding_w11_hw1_comments SET is_deleted = 1 WHERE id =? AND username =?";
+  $stmt = $conn->prepare($sql);
   $stmt->bind_param('is', $id, $username);
 }
 

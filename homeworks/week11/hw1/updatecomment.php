@@ -3,6 +3,12 @@ session_start();
 require_once('conn.php');
 require_once('utils.php');
 
+$id = $_GET['id'];
+if (!$id) {
+  header("Location: index.php");
+  die();
+};
+
 $username = NULL;
 $user = NULL;
 if (!empty($_SESSION['username'])) {
@@ -11,8 +17,6 @@ if (!empty($_SESSION['username'])) {
   $nickname = $userdata['nickname'];
   $role = $userdata['role'];
 }
-
-$id = $_GET['id'];
 
 if ($role === 'ADMIN') {
   $sql =  'SELECT * FROM ding_w11_hw1_comments WHERE id =?';
@@ -34,6 +38,11 @@ if (!$result) {
 }
 $result = $stmt->get_result();
 $row = $result->fetch_assoc();
+
+if (empty($row)) {
+  header("Location:index.php");
+  die();
+}
 
 ?>
 

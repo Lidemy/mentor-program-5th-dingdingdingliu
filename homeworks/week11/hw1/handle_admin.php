@@ -1,11 +1,23 @@
 <?php
 session_start();
 require_once('conn.php');
+require_once('utils.php');
 
 if (empty($_GET)) {
   header("Location:index.php");
   die();
 }
+
+if (!empty($_SESSION['username'])) {
+  $username = $_SESSION['username'];
+  $userdata = getData($username);
+  $role = $userdata['role'];
+};
+
+if ($role !== 'ADMIN') {
+  header("Location:index.php");
+  die();
+};
 
 $username = $_GET['username'];
 $role = $_GET['role'];

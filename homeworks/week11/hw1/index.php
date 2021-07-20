@@ -75,6 +75,9 @@ $result = $stmt->get_result();
       } else if ($_GET['errCode'] === '3') {
         $msg = "暱稱不可空白，請重新修改暱稱";
         echo "<h5>" . $msg . "</h5>";
+      } else if ($_GET['errCode'] === '4') {
+        $msg = "停權會員無法留言";
+        echo "<h5>" . $msg . "</h5>";
       }
     }
     ?>

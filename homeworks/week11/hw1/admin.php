@@ -47,9 +47,6 @@ $result = $stmt->get_result();
       </div>
     </div>
     <div class="board__hr"></div>
-    <?php if ($username) { ?>
-
-    <?php } ?>
     <section>
       <?php
       while ($row = $result->fetch_assoc()) {

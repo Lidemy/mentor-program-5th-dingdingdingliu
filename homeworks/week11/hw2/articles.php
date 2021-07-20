@@ -3,14 +3,6 @@ session_start();
 require_once("conn.php");
 require_once("utils.php");
 
-$username = NULL;
-$role = NULL;
-if (!empty($_SESSION['username'])) {
-  $username = $_SESSION['username'];
-  $userdata = getUserData($username);
-  $role = $userdata['role'];
-}
-
 $sql = 'SELECT * FROM ding_w11_hw2_articles WHERE is_deleted IS NULL ORDER BY id DESC';
 $stmt = $conn->prepare($sql);
 $result = $stmt->execute();

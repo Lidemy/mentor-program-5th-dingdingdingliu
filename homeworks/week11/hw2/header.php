@@ -11,11 +11,14 @@
     <div class="navbar__list-right">
       <?php if (empty($_SESSION)) { ?>
         <a href="login.php">登入</a>
-      <?php } ?>
-      <?php if ($role === 'ADMIN') { ?>
-        <a href="admin.php">管理後台</a>
-        <a href="handle_logout.php">登出</a>
-      <?php } ?>
+        <?php } else {
+        if ($role == 'ADMIN') { ?>
+          <a href="admin.php">管理後台</a>
+          <a href="handle_logout.php">登出</a>
+        <?php } else { ?>
+          <a href="handle_logout.php">登出</a>
+      <?php }
+      } ?>
     </div>
   </div>
 </nav>

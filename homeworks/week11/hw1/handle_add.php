@@ -12,8 +12,10 @@ if (!empty($_SESSION['username'])) {
 if (empty($_POST['content'])) {
   header("Location:index.php?errCode=1");
   die();
-} else if ($role === "SUSPENSION") {
-  header("Location:index.php");
+}
+
+if ($role === "SUSPENSION") {
+  header("Location:index.php?errCode=4");
   die();
 }
 
