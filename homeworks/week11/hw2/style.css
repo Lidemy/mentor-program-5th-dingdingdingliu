@@ -1,0 +1,277 @@
+body {
+  margin:0px;
+  padding:0px;
+}
+
+* {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.title h2 {
+  font-size: 28px;
+}
+
+h5 {
+  font-size: 14px;
+  color: rgb(182, 38, 38);
+}
+
+a {
+  text-decoration:none;
+  color: #a8a8a8;
+}
+
+
+.navbar {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+}
+
+.navbar__sitename a {
+  font-size: 26px;
+  font-weight: bold;
+  margin: 0px 20px;
+  color:black;
+}
+
+.navbar__lists {
+  display: flex; 
+  flex:3;
+  justify-content: space-between;
+}
+
+.navbar__list-left,
+.navbar__list-right {
+  display: flex;
+}
+
+.navbar__lists a {
+  color: #787878;
+  margin: 0px 10px;
+}
+
+.section__title {
+  width:100%;
+  height: 240px;
+  background-image:  linear-gradient(to top, #000000, #434343);
+  color: white;
+  position: relative;
+  z-index: 1;
+}
+
+.title {
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  text-align: center;
+}
+
+.footer {
+  background-color: #323232;
+  font-size: 14px;
+  color: #fefefe;
+  text-align: center;
+  height:55px;
+  padding-top:20px ;
+}
+
+.wrapper {
+  background: white;
+  width: 100%;
+}
+
+.contents,
+.article__contents {
+  margin-top: -60px;
+  background: white;
+  margin-bottom: 20px;
+  min-height: 200px;
+}
+
+.article__contents {
+  margin-bottom: 120px;
+}
+
+.content__card,
+.content__article  {
+  max-width: 900px;
+  background: white;
+  margin:30px auto;
+  padding: 25px;
+  position: relative;
+  z-index: 2;
+  border:2px solid white;
+  outline: 1px solid #9a9a9a;
+  outline-offset: -10px;
+}
+
+.card__header {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0px;
+  margin-top: 10px;
+}
+
+
+.card__title ~ a{
+  color: #a8a8a8;
+  border: 1px solid #9a9a9a;
+  padding: 2px 15px;
+}
+
+.card__time {
+  height:40px;
+  background-color: #eeeeee;
+  padding: 8px;
+  padding-top: 12px;
+  margin: 15px 0px;
+  color: #8f8f8f;
+}
+
+.card__article {
+  padding: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  text-align:left;
+  line-height:2em;
+  margin: 20px 0px;
+}
+
+.card__readmore {
+  margin: 20px 0px;
+}
+
+.card__readmore a {
+  color: #a8a8a8;
+  border: 1px solid #9a9a9a;
+  padding: 10px;
+}
+
+
+.content__login {
+  max-width: 600px;
+  background: white;
+  margin:30px auto;
+  padding: 25px;
+  position: relative;
+  z-index: 2;
+  border:2px solid white;
+  outline: 1px solid #9a9a9a;
+  outline-offset: -10px;
+  text-align: center;
+}
+
+.content__login h1 {
+  margin: 50px auto;
+  font-size: 30px;
+}
+
+.card__submit {
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+}
+
+.card__submit span {
+  font-size: 14px;
+  text-align: left;
+  margin-left:50px ;
+}
+
+.card__submit input {
+  padding: 8px;
+  margin: 20px 50px;
+}
+
+.card__btn input {
+  text-decoration: none;
+  width: 380px;
+  height: 56px;
+  color: white;
+  background-image: linear-gradient(to top, #000000, #434343);
+  margin-bottom: 20px;
+}
+
+.article__content {
+  max-width: 900px;
+  background: white;
+  margin:20px auto;
+  padding: 25px;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  border-bottom:1px solid #9a9a9a ;
+}
+
+.article__info {
+  display: flex;
+  justify-content: space-around;
+}
+
+.article__time {
+  color:#8f8f8f;
+  font-size: 16px;
+  margin: 5px 10px;
+}
+
+.article__time ~ a {
+  margin: 0px 3px;
+  border: 1px solid #a8a8a8;
+  padding: 3px 7px;
+}
+
+.content__article {
+  display: flex;
+  flex-direction: column;
+}
+
+.article__submit {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.article__submit span {
+  text-align: left;
+  font-size: 20px;
+}
+
+.article__submit input {
+  padding: 8px;
+  margin-top: 10px;
+}
+
+.article__submit ~ textarea {
+  margin: 20px;
+}
+
+.article__btn input {
+  padding: 5px 25px;
+  margin: 20px;
+  text-decoration: none;
+  background:white;
+  border: 1px solid #737373;
+  color: #737373;
+}
+
+.article__btn input:hover {
+   transform: scale(1.1);
+}
+
+.paginator {
+  text-align: center;
+  margin: 15px auto;
+  margin-bottom: 100px;
+}
+
+.paginator a {
+  margin: 0px 3px;
+  border: 1px solid #a8a8a8;
+  border-radius: 3px;
+  padding: 3px 7px;
+}
