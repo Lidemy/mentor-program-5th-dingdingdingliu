@@ -7,37 +7,48 @@ if (
   empty($_POST['todo']) ||
   empty($_POST['title'])
 ) {
-  $json = array(
+  $response = array(
     'result' => false,
     'message' => 'please input missing field.'
   );
-  $response = json_encode($json);
-  echo ($response);
+  $resMsg = json_encode($response);
+  echo ($resMsg);
   die();
 }
 
 $todo = $_POST['todo'];
 $title = $_POST['title'];
+$id = $_GET['id'];
 
-$sql = 'UPDATE ding_w12_hw2_todolist SET content = ? WHERE title = ?';
-$stmt = $conn->prepare($sql);
-$stmt->bind_param('ss', $todo, $title);
-$result = $stmt->execute();
-
-if (!$result) {
-  $json = array(
+if (!$id) {
+  $response = array(
     'result' => false,
-    'message' => $conn->error
+    'message' => 'ID missing'
   );
-  $response = json_encode($json);
-  echo ($response);
+  $resMsg = json_encode($response);
+  echo $resMsg;
   die();
 }
 
-$json = array(
+$sql = 'UPDATE ding_w12_hw2_todolist SET content = ? WHERE title = ? AND id = ?';
+$stmt = $conn->prepare($sql);
+$stmt->bind_param('ssi', $todo, $title, $id);
+$result = $stmt->execute();
+
+if (!$result) {
+  $response = array(
+    'result' => false,
+    'message' => $conn->error
+  );
+  $resMsg = json_encode($response);
+  echo ($resMsg);
+  die();
+}
+
+$response = array(
   'result' => true,
   'message' => 'Success'
 );
-$response = json_encode($json);
-echo ($response);
+$resMsg = json_encode($response);
+echo ($resMsg);
 die();
