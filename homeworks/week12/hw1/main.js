@@ -51,7 +51,7 @@ function getDate() {
 }
 
 $(document).ready(() => {
-  const BASE_URL = 'https://localhost/ding/week12/board_api/'
+  const BASE_URL = 'https://mentor-program.co/mtr04group3/dingding/week12/hw1/'
   const formSelector = '.form_container'
   let cursor = 0
   const siteKey = 'ding'
