@@ -7,12 +7,12 @@ if (
   empty($_POST['nickname']) ||
   empty($_POST['site_key'])
 ) {
-  $json = array(
+  $response = array(
     'result' => false,
     'message' => 'Please input missing field.'
   );
-  $response = json_encode($json);
-  echo $response;
+  $resMsg = json_encode($response);
+  echo $resMsg;
   die();
 };
 
@@ -26,19 +26,19 @@ $stmt->bind_param('sss', $site_key, $nickname, $content);
 $result = $stmt->execute();
 
 if (!$result) {
-  $json = array(
+  $response = array(
     'result' => false,
     'message' => $conn->error
   );
-  $response = json_encode($json);
-  echo $result;
+  $resMsg = json_encode($response);
+  echo $resMsg;
   die();
 }
 
-$json = array(
+$response = array(
   'result' => true,
   'message' => 'Success!'
 );
-$response = json_encode($json);
-echo $response;
+$resMsg = json_encode($response);
+echo $resMsg;
 die();
