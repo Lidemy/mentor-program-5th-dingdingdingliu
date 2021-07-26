@@ -25,11 +25,11 @@ $per_page = 5;
 if (!empty($_GET['cursor'])) {
   $sql = 'SELECT * FROM ding_w12_hw1_messages WHERE site_key = ? AND id < ? ORDER BY id DESC limit ?';
   $stmt = $conn->prepare($sql);
-  $stmt->bind_param('sii', $site_key, $cursor, $get_api);
+  $stmt->bind_param('sii', $site_key, $cursor, $per_page);
 } else {
   $sql = 'SELECT * FROM ding_w12_hw1_messages WHERE site_key = ? ORDER BY id DESC limit ?';
   $stmt = $conn->prepare($sql);
-  $stmt->bind_param('si', $site_key, $get_api);
+  $stmt->bind_param('si', $site_key, $per_page);
 }
 
 $result = $stmt->execute();
