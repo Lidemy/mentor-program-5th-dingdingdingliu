@@ -221,7 +221,9 @@ for(var i=0; i<5; i++) {
 
     event loop 執行讓 cb queue 中的 cb 按順序推回 stack 執行
 
-    stack : `console.log(i)` // 第一個 cb
+    stack : `(){console.log(i)}` // 第一個 cb
+
+    stack : `console.log(i)`
 
     `functionEC.AO` 中找不到 `i` ，所以往 `globalEC.VO` 找，`i` = `5` // 輸出 `5`
 
@@ -245,7 +247,9 @@ for(var i=0; i<5; i++) {
 
 21. 第二個 cb 推回 stack 執行
 
-    stack : `console.log(i)` // 第二個 cb
+    stack : `(){console.log(i)}` // 第二個 cb
+
+    stack : `console.log(i)`
 
     `functionEC.AO` 中找不到 `i` ，所以往 `globalEC.VO` 找，`i` = `5` // 輸出 `5`
 
@@ -253,7 +257,9 @@ for(var i=0; i<5; i++) {
 
 22. 第三個 cb 推回 stack 執行
 
-    stack : `console.log(i)` // 第三個 cb
+    stack : `(){console.log(i)}` // 第三個 cb
+
+    stack : `console.log(i)`
 
     `functionEC.AO` 中找不到 `i` ，所以往 `globalEC.VO` 找，`i` = `5` // 輸出 `5`
 
@@ -261,7 +267,9 @@ for(var i=0; i<5; i++) {
 
 23. 第四個 cb 推回 stack 執行
 
-    stack : `console.log(i)` // 第四個 cb
+    stack : `(){console.log(i)}` // 第四個 cb
+
+    stack : `console.log(i)`
 
     `functionEC.AO` 中找不到 `i` ，所以往 `globalEC.VO` 找，`i` = `5` // 輸出 `5`
 
@@ -269,7 +277,9 @@ for(var i=0; i<5; i++) {
 
 24. 第五個 cb 推回 stack 執行
 
-    stack : `console.log(i)` // 第五個 cb
+    stack : `(){console.log(i)}` // 第五個 cb
+
+    stack : `console.log(i)`
 
     `functionEC.AO` 中找不到 `i` ，所以往 `globalEC.VO` 找，`i` = `5` // 輸出 `5`
 

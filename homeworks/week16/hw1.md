@@ -22,37 +22,45 @@ console.log(5)
 
    stack 清空
 
-2. `setTimeout(() => {
+2. stack: `setTimeout(() => {
      console.log(2)
-   }, 0)`  // 進入 stack，將這個 setTimeout() 放入 webAPIs 進行計時器
+   }, 0)` 
 
    stack 清空
 
-   讀秒後，計時器將 `console.log(2)` 放入 cb queue，webAPIs 清空
+   webAPIs : setTimeout()
 
+     讀秒後，計時器將 `()=> {console.log(2)}` 放入 cb queue
+     
 3. `console.log(3)` // 進入 stack，輸出 3
 
    stack 清空
 
-4. `setTimeout(() => {
+4. stack: `setTimeout(() => {
      console.log(4)
-   }, 0)`  // 進入 stack，再將這個 setTimeout() 放入 webAPIs 進行計時器
+   }, 0)` 
 
    stack 清空
 
-   讀秒後，計時器將 `console.log(4)` 放入 cb queue，webAPIs 清空
+   webAPIs : setTimeout()
 
+     讀秒後，計時器將 `()=> {console.log4)}` 放入 cb queue
+     
 5. `console.log(5)` // 進入 stack，輸出 5
 
    stack 清空
 
-6. stack 清空後，event loop 發揮功能將排在 cb queue 的第一個 cb `console.log(2)` 推回到 stack 並執行
+6. stack 清空後，event loop 發揮功能將排在 cb queue 的第一個 cb `()=> {console.log(2)}` 推回到 stack並執行
+
+7. stack 執行 `console.log(2)`
 
    // 輸出 2
 
    stack 清空
 
-7. stack 清空後，event loop 發揮功能將排在 cb queue 的第二個 cb `console.log(4)` 推回到 stack 並執行
+8. stack 清空後，event loop 發揮功能將排在 cb queue 的第二個 cb `()=> {console.log(4)}` 推回到 stack 並執行
+
+9. stack 執行 `console.log(4)`
 
    // 輸出 4
 
