@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<head>
+  <%- include('template/header') %>
+</head>
+<body>
+  <%- include('template/navbar') %>
+  <%- include('template/banner') %>
+  <div class="contents">
+    <% const {title,content,createdAt} = article %>
+    <div class="content__card">
+      <div class="card__header">
+        <div class="card__title"><%= title %>
+        </div>
+      </div>
+      <div class="card__time"><%= createdAt %></div>
+      <div class="card__article"><%= content %></div>
+    </div>
+  </div>
+  <%- include('template/footer') %> 
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+ <%- include('template/header') %>
+</head>
+
+<% const {id,title,content,imgURL} = lottery %>
+<body background="<%=imgURL%>">
+<%- include('template/navbar')%>
+<section class="getlottery__section">
+  <div class="lottery__win">
+    <h2>恭喜你中<%=title%>了！</h2>
+    <h2><%=content%>！</h2>
+    <a class="lottery__btn btn" type="button" href='/'>回到首頁</a>
+  </div>
+</section>
+<%- include('template/footer_lottery')%>
+</body>
+
+</html>

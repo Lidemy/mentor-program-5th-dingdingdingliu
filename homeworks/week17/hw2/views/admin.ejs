@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+ <%- include('template/header') %>
+</head>
+
+<body>
+  <%- include('template/navbar_admin')%>
+  <section class="admin__banner">
+    <h1>管理後台</h1>
+  </section>
+  <section class="admin__section">
+    <div class="admin__contents">
+      <div class="admin__content_title">
+        <div class="admin__content_info">
+          <div class="content__title">獎項</div>
+          <div class="content__depiction">獎項敘述</div>
+          <div class="content__img">獎項背景圖</div>
+          <div class="content__chance">機率</div>
+        </div>
+      </div>
+      <% let totalChance = 0 %>
+      <% lotterys.forEach(({title,content,imgURL,chance,id})=> {%>
+      <div class="admin__content">
+        <div class="admin__content_info">
+          <div class="content__title"><%= title %></div>
+          <div class="content__depiction"><%= content %></div>
+          <div class="content__img">圖片已上傳</div>
+          <div class="content__chance"><%= chance +'%'%></div>
+        </div>
+        <div class="admin__content_btn">
+          <a href="update/<%=id%>">編輯</a>
+          <a href="delete/<%=id%>">刪除</a>
+        </div>
+      </div>
+        <% totalChance = totalChance += chance%>
+      <% }) %>
+      <div class="admin__content_title">
+        <div class="admin__content_info">
+          <div class="content__title"></div>
+          <div class="content__depiction"></div>
+          <div class="content__img"></div>
+          <div class="content__chance">機率加總:<%=totalChance%>%
+            <%if(totalChance !== 100){%>
+            <h6>機率加總須為100</h6>
+            <%}%>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <a class="admin__btn btn" type="button" href="create">新增獎項</a>
+    </div>
+  </section>
+  <%- include('template/footer_admin')%>
+  </body>
+
+</html
