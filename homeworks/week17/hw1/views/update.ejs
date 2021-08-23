@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<head>
+<%- include('template/header') %>
+</head>
+<body>
+<%- include('template/navbar_articles') %>
+<%- include('template/banner') %>
+<% const {id, title,content} = article %>
+  <form method="POST" action="/update/<%= id %>" class="contents">
+    <div class="content__article">
+      <div class="article__submit">
+        <span>編輯文章</span>
+        <h5><%= errorMsg %></h5>
+        <input type="text" name="title" value="<%= title %>">
+      </div>
+      <textarea name="content" id="" cols="20" rows="30"><%= content %></textarea>
+      <div class="article__btn">
+        <input type="submit" value="送出">
+      </div>
+    </div>
+  </form>
+<%- include('template/footer') %> 
+</body>
+</html>

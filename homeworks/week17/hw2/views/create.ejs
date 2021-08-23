@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+ <%- include('template/header') %>
+</head>
+
+<body>
+  <%- include('template/navbar_admin')%>
+  <section class="admin__banner">
+    <h1>新增獎項</h1>
+  </section>
+  <section class="admin__section">
+    <h5><%= errorMsg %></h5>
+    <form method="POST" action="/create" class="form__content">
+      <div class="card__submit">
+        <span>獎項名稱
+          <h6>最多請輸入五個字</h6>
+        </span>
+        <input type="text" name="title">
+      </div>
+      <div class="card__submit">
+        <span>獎項敘述
+         <h6>最多請輸入二十個字</h6>
+        </span>
+        <input type="text" name="content">
+      </div>
+      <div class="card__submit">
+        <span>圖片網址
+          <h6>上傳圖片功能陸續更新中</h6>
+        </span>
+        <input type="text" name="imgURL">
+      </div>
+      <div class="card__submit">
+        <span>抽獎機率
+          <h6>請設定百分比內容</h6>
+        </span>
+        <input type="text" name="chance">
+      </div>
+      <div class="card__submit_btn">
+        <button class="admin__btn btn" type="submit">確認新增</button>
+      </div>
+    </form>
+  </section>
+  <%- include('template/footer_admin')%>
+  </body>
+
+</html

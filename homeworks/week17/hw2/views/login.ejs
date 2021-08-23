@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+ <%- include('template/header') %>
+</head>
+
+<body>
+  <%- include('template/navbar')%>
+  <section class="admin__banner">
+    <h1>Login</h1>
+  </section>
+  <section class="admin__section">
+    <h5><%= errorMsg %></h5>
+    <form method="POST" action="/login" class="form__content">
+      <div class="card__submit">
+        <span>USERNAME</span>
+        <input type="text" name="username">
+      </div>
+      <div class="card__submit">
+        <span>PASSWORD</span>
+        <input type="password" name="password">
+      </div>
+      <div class="card__submit_btn">
+        <button class="admin__btn btn" type="submit">確認登入</button>
+      </div>
+    </form>
+  </section>
+  <%- include('template/footer_admin')%>
+  </body>
+</html

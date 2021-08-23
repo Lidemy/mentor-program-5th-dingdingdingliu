@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<head>
+<%- include('template/header') %>
+</head>
+<body>
+<%- include('template/navbar_articles') %>
+<%- include('template/banner') %>
+  <form method="POST" action="/create" class="contents">
+    <div class="content__article">
+      <div class="article__submit">
+        <span>發表文章</span>
+        <h5><%= errorMsg %></h5>
+        <input type="text" name='title'>
+      </div>
+      <textarea name="content" id="" cols="20" rows="30"></textarea>
+      <div class="article__btn">
+        <input type="submit" value="送出">
+      </div>
+    </div>
+  </form>
+<%- include('template/footer') %> 
+</body>
+</html>

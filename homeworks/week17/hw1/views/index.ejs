@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<head>
+  <%- include('template/header') %>
+</head>
+<body>
+  <%- include('template/navbar') %>
+  <%- include('template/banner') %>
+  <div class="contents">
+    <% articles.forEach(({id, title, content, createdAt })=>{ %>
+    <div class="content__card">
+      <div class="card__header">
+        <div class="card__title"><%= title %>
+        </div>
+      </div>
+      <div class="card__time"><%= createdAt %></div>
+      <div class="card__article"><%= `${content.substr(0,150)} ...` %></div>
+      <div class="card__readmore">
+        <a href="/read/<%= id%>">READ MORE</a>
+      </div>
+    </div>
+    <% }) %>
+  </div>
+  <div class="paginator">
+    <%if(articles.length>0) {%>
+      <% if (page !== 1) { %>
+        <a href="/index/<%=1%>">首頁</a>
+        <a href="/index/<%= page-1 %>">上一頁</a>
+      <% } %>
+      <% if (page !== totalPage) { %>
+        <a href="/index/<%= page+1 %>">下一頁</a>
+        <a href="/index/<%=totalPage%>">最末頁</a>
+      <% } %>
+    <% } %>
+  </div>
+  <%- include('template/footer') %> 
+</body>
+</html>

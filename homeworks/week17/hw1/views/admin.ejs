@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<head>
+<%- include('template/header') %>
+</head>
+<body>
+<%- include('template/navbar_admin') %>
+<%- include('template/banner') %>
+  <div class="article__contents">
+    <% articles.forEach(({id, title, isDeleted, User})=> { %>
+      <div class="article__content">
+        <div class="article__title"><%= title %></div>
+        <div class="article__info">
+          <div class="article__time"></div>
+          <% if (username === User.username) {%>
+            <a href="/update/<%= id %>">編輯</a>
+            <% if (isDeleted === 0) { %>
+              <a href="/delete/<%= id %>">刪除</a>
+            <% } else { %>
+              <a href="/delete/<%= id %>">復原</a>
+            <% } %>
+          <% } %>
+        </div>
+      </div>
+    <% }) %>
+    <h5><%= errorMsg %></h5>
+  </div>
+<%- include('template/footer') %> 
+</body>
+</html>
+
