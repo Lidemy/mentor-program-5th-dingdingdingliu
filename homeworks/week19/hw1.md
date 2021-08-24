@@ -119,37 +119,37 @@ typora-root-url: wireframe
 # 基礎頁面 wireframe
 
 一、前台首頁
-![](../wireframe/前台首頁.png)
+![前台首頁](https://github.com/Lidemy/mentor-program-5th-dingdingdingliu/blob/master/%E5%89%8D%E5%8F%B0%E9%A6%96%E9%A0%81.png)
 
 
 
 二、前台商品頁面
 
-![前台商品頁](../wireframe/前台商品頁.png)
+![前台商品頁](https://github.com/Lidemy/mentor-program-5th-dingdingdingliu/blob/master/%E5%89%8D%E5%8F%B0%E5%95%86%E5%93%81%E9%A0%81.png)
 
 
 
 三、前台活動頁面
 
-![前台-活動頁面](../wireframe/前台-活動頁面.png)
+![前台-活動頁面](https://github.com/Lidemy/mentor-program-5th-dingdingdingliu/blob/master/%E5%89%8D%E5%8F%B0-%E6%B4%BB%E5%8B%95%E9%A0%81%E9%9D%A2.png)
 
 
 
 四、會員系統首頁
 
-![會員系統首頁](../wireframe/會員系統首頁.png)
+![會員系統首頁](https://github.com/Lidemy/mentor-program-5th-dingdingdingliu/blob/master/%E6%9C%83%E5%93%A1%E7%B3%BB%E7%B5%B1%E9%A6%96%E9%A0%81.png)
 
 
 
 五、後台商品管理
 
-![後台-商品管理頁面](../wireframe/後台-商品管理頁面.png)
+![後台-商品管理頁面](https://github.com/Lidemy/mentor-program-5th-dingdingdingliu/blob/master/%E5%BE%8C%E5%8F%B0-%E5%95%86%E5%93%81%E7%AE%A1%E7%90%86%E9%A0%81%E9%9D%A2.png)
 
 
 
 六、後台新增活動頁
 
-![後台-新增活動頁面(修改一)](../wireframe/後台-新增活動頁面(修改一).png)
+![後台-新增活動頁面(修改一)](https://github.com/Lidemy/mentor-program-5th-dingdingdingliu/blob/master/%E5%BE%8C%E5%8F%B0-%E6%96%B0%E5%A2%9E%E6%B4%BB%E5%8B%95%E9%A0%81%E9%9D%A2(%E4%BF%AE%E6%94%B9%E4%B8%80).png)
 
 
 
