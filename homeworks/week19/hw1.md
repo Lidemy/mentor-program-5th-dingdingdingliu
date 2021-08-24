@@ -1,3 +1,7 @@
+---
+typora-root-url: wireframe
+---
+
 # 期末專案規劃
 
 
@@ -116,35 +120,37 @@
 
 一、前台首頁
 
-![](C:\Users\mumu892101\mentor-program-5th-dingdingdingliu\homeworks\week19\wireframe\前台首頁.png)
+![](../wireframe/前台首頁.png)
+
+
 
 二、前台商品頁面
 
-![前台商品頁](C:\Users\mumu892101\mentor-program-5th-dingdingdingliu\homeworks\week19\wireframe\前台商品頁.png)
+![前台商品頁](../wireframe/前台商品頁.png)
 
 
 
 三、前台活動頁面
 
-![前台-活動頁面](C:\Users\mumu892101\mentor-program-5th-dingdingdingliu\homeworks\week19\wireframe\前台-活動頁面.png)
+![前台-活動頁面](../wireframe/前台-活動頁面.png)
 
 
 
 四、會員系統首頁
 
-![會員系統首頁](C:\Users\mumu892101\mentor-program-5th-dingdingdingliu\homeworks\week19\wireframe\會員系統首頁.png)
+![會員系統首頁](../wireframe/會員系統首頁.png)
 
 
 
 五、後台商品管理頁
 
-![後台-商品管理頁面](C:\Users\mumu892101\mentor-program-5th-dingdingdingliu\homeworks\week19\wireframe\後台-商品管理頁面.png)
+![後台-商品管理頁面](../wireframe/後台-商品管理頁面.png)
 
 
 
 六、後台新增活動頁
 
-![後台-新增活動頁面(修改一)](C:\Users\mumu892101\mentor-program-5th-dingdingdingliu\homeworks\week19\wireframe\後台-新增活動頁面(修改一).png)
+![後台-新增活動頁面(修改一)](../wireframe/後台-新增活動頁面(修改一).png)
 
 
 
