@@ -119,7 +119,6 @@ typora-root-url: wireframe
 # 基礎頁面 wireframe
 
 一、前台首頁
-
 ![](../wireframe/前台首頁.png)
 
 
@@ -142,7 +141,7 @@ typora-root-url: wireframe
 
 
 
-五、後台商品管理頁
+五、後台商品管理
 
 ![後台-商品管理頁面](../wireframe/後台-商品管理頁面.png)
 
