@@ -1,0 +1,53 @@
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .navbar-brand {
+      text-align: center;
+    }
+
+    .main__site {
+      min-height: 100vh;
+    }
+
+    .todos__card {
+      border: 1px solid rgb(204, 202, 202);
+      border-radius: 5px;
+    }
+
+    .list-group-item,
+    .card-header {
+      word-break: break-all;
+    }
+
+    .todo__item {
+      border: 1px solid gray;
+      border-radius: 3px;
+    }
+
+    .card__footer_content,
+    .btn,
+    .uncomplete-count {
+      font-size: 12px;
+
+    }
+
+    i:hover {
+      cursor: pointer;
+    }
+
+    .fa-check-circle:hover,
+    .doneicon {
+      color: green;
+    }
+
+    .fa-trash-alt:hover {
+      color: red;
+    }
+
+    .done {
+      text-decoration: line-through;
+      color: grey;
+    }
+ 

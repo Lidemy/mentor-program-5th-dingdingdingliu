@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo List W12</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/5c062f800e.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src='main.js'></script>
+
+</head>
+
+<body>
+  <header class="navbar sticky-top bg-secondary p-3 px-0 shadow">
+    <div class="navbar-brand fs-2 m-1 px-3 w-100">Todo List</div>
+  </header>
+  <main class="container-fluid">
+    <div class="main__site row">
+      <div class="side__bar col-sm-3 col-md-2 bg-white">
+        <div class='d-flex justify-content-center'>
+          <button type="button" class="btn btn-outline-secondary btn-new mt-5">New Todo</button>
+        </div>
+      </div>
+      <div class="main__card col-sm-9 col-md-10 bg-light d-flex flex-column align-items-center">
+        <div class="todos__inputs col-sm-12">
+          <div class="title__input m-3 d-flex justify-content-between">
+            <input type="text" name="todolist__title" class="form-control" placeholder="Enter your todolist name">
+          </div>
+          <div class="items__input m-3 d-flex justify-content-between">
+            <input type="text" name="todo_content" class="form-control" placeholder="What needs to be done?">
+          </div>
+        </div>
+        <div class="card todos__card mt-3" style="width:80%;">
+          <div class="card-header d-flex justify-content-center">
+            <div class="card__title text-center"></div>
+            <input type="hidden" value="listId">
+          </div>
+          <ul class="todo__container list-group list-group-flush d-flex">
+            <!-- todo items -->
+          </ul>
+          <div class="card-footer d-flex flex-row justify-content-between">
+            <div class="uncomplete-count container-fluid p-1"></div>
+            <div class="container-fluid btn-container">
+              <button type="button" class="btn btn-outline-secondary btn-sm row p-1 mx-1 btn_all">All</button>
+              <button type="button" class="btn btn-outline-secondary btn-sm row p-1 mx-1 btn_active">Active</button>
+              <button type="button"
+                class="btn btn-outline-secondary btn-sm row p-1 mx-1 btn_completed">Completed</button>
+            </div>
+            <button class="clear_completed container-fluid btn btn-light btn-sm p-1 btn_delete_completed">Clear
+              completed</button>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center m-4">
+          <button type="button" class="btn btn-outline-secondary btn-save mx-3 d-flex">SAVE</button>
+          <button type="button" class="btn btn-outline-secondary btn-update" style="display: none">UPDATE</button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
